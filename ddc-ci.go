@@ -60,6 +60,7 @@ func getPhysicalMonitor(handle uintptr) (result uintptr) {
 	return
 }
 
+//https://docs.microsoft.com/en-us/windows/win32/api/lowlevelmonitorconfigurationapi/nf-lowlevelmonitorconfigurationapi-getvcpfeatureandvcpfeaturereply
 func GetMonitorValue(key int32) int {
 	mHandle := getMonitorHandle()
 	var pvct uint32 = 0
@@ -82,6 +83,7 @@ func GetMonitorValue(key int32) int {
 	return int(curr)
 }
 
+//https://docs.microsoft.com/en-us/windows/win32/api/lowlevelmonitorconfigurationapi/nf-lowlevelmonitorconfigurationapi-setvcpfeature
 func SetMonitorValue(key int32, count int) {
 	mHandle := getMonitorHandle()
 	_, _, callErr := syscall.Syscall(
